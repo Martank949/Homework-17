@@ -1,6 +1,4 @@
-# 17 Workout Tracker
-
-## Homework-17
+# Workout Tracker
 
 ### This is the link to the GitHub Repo
 
@@ -35,6 +33,8 @@ GitHub page at the following Link: [GitHub](https://github.com/martank949)
 martinzb949@gmail.com
 
 ## Description of my Project:
+
+### Homework-17
 
 Well this is a workout tracker that in theory supposed to track your activities. So far it's under construction.
 
