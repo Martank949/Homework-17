@@ -2,11 +2,11 @@
 
 ### This is the link to the GitHub Repo
 
-https://github.com/Martank949/Homework-17
+https://github.com/Martank949/Workout-Tracker
 
 ### This is the link to the live page:
 
-https://martank949.github.io/Homework-17/
+https://martank949.github.io/Workout-Tracker/
 
 # The Ultimate README Generator
 
@@ -25,8 +25,8 @@ https://martank949.github.io/Homework-17/
 
 ## GitHub Username:
 
-martank949
-GitHub page at the following Link: [GitHub](https://github.com/martank949)
+Username: martank949
+GitHub: [GitHub](https://github.com/martank949)
 
 ## Email Address:
 
