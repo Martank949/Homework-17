@@ -8,7 +8,7 @@ https://github.com/Martank949/Workout-Tracker
 
 https://martank949.github.io/Workout-Tracker/
 
-# The Ultimate README Generator
+#
 
 [![License](https://img.shields.io/badge/License-Apache-blue.svg "License Badge")]
 
