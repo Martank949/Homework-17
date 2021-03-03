@@ -1,3 +1,13 @@
+fetch("/api/workouts/range")
+	.then((response) => {
+		return response.json();
+	})
+	.then((data) => {
+		populateChart(data);
+	});
+
+API.getWorkoutsInRange();
+
 function generatePalette() {
 	const arr = [
 		"#003f5c",
@@ -22,7 +32,7 @@ function generatePalette() {
 }
 
 function populateChart(data) {
-	let durations = data.map(({ totalDuration }) => totalDuration);
+	let durations = duration(data);
 	let pounds = calculateTotalWeight(data);
 	let workouts = workoutNames(data);
 	const colors = generatePalette();
@@ -32,28 +42,21 @@ function populateChart(data) {
 	let pie = document.querySelector("#canvas3").getContext("2d");
 	let pie2 = document.querySelector("#canvas4").getContext("2d");
 
-	const daysOfWeek = [
-		"Sunday",
-		"Monday",
-		"Tuesday",
-		"Wednesday",
-		"Thursday",
-		"Friday",
-		"Saturday",
-	];
-
-	const labels = data.map(({ day }) => {
-		const date = new Date(day);
-		return daysOfWeek[date.getDay()];
-	});
-
 	let lineChart = new Chart(line, {
 		type: "line",
 		data: {
-			labels,
+			labels: [
+				"Sunday",
+				"Monday",
+				"Tuesday",
+				"Wednesday",
+				"Thursday",
+				"Friday",
+				"Saturday",
+			],
 			datasets: [
 				{
-					label: "Workout Time In Minutes",
+					label: "Workout Duration In Minutes",
 					backgroundColor: "red",
 					borderColor: "red",
 					data: durations,
@@ -90,7 +93,15 @@ function populateChart(data) {
 	let barChart = new Chart(bar, {
 		type: "bar",
 		data: {
-			labels,
+			labels: [
+				"Sunday",
+				"Monday",
+				"Tuesday",
+				"Wednesday",
+				"Thursday",
+				"Friday",
+				"Saturday",
+			],
 			datasets: [
 				{
 					label: "Pounds",
@@ -138,7 +149,7 @@ function populateChart(data) {
 			labels: workouts,
 			datasets: [
 				{
-					label: "Exercises Performed",
+					label: "Excercises Performed",
 					backgroundColor: colors,
 					data: durations,
 				},
@@ -147,7 +158,7 @@ function populateChart(data) {
 		options: {
 			title: {
 				display: true,
-				text: "Exercises Performed",
+				text: "Excercises Performed",
 			},
 		},
 	});
@@ -158,7 +169,7 @@ function populateChart(data) {
 			labels: workouts,
 			datasets: [
 				{
-					label: "Exercises Performed",
+					label: "Excercises Performed",
 					backgroundColor: colors,
 					data: pounds,
 				},
@@ -167,7 +178,7 @@ function populateChart(data) {
 		options: {
 			title: {
 				display: true,
-				text: "Exercises Performed",
+				text: "Excercises Performed",
 			},
 		},
 	});
@@ -191,6 +202,18 @@ function calculateTotalWeight(data) {
 	return totals;
 }
 
+function calculateTotalWeight(data) {
+	let total = [];
+
+	data.forEach((workout) => {
+		workout.exercises.forEach((exercise) => {
+			total.push(exercise.weight);
+		});
+	});
+
+	return total;
+}
+
 function workoutNames(data) {
 	let workouts = [];
 
@@ -200,9 +223,5 @@ function workoutNames(data) {
 		});
 	});
 
-	// return de-duplicated array with JavaScript `Set` object
-	return [...new Set(workouts)];
+	return workouts;
 }
-
-// get all workout data from back-end
-API.getWorkoutsInRange().then(populateChart);
