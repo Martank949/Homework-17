@@ -1,4 +1,4 @@
-const router = require("expresponses").Router();
+const router = require("express").Router();
 const Workout = require("../models/workout.js");
 
 router.post("/api/workouts", (request, response) => {
