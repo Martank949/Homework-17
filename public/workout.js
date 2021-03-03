@@ -45,7 +45,7 @@ function formatDate(date) {
 }
 
 function renderWorkoutSummary(summary) {
-	const container = document.querySelector(".workout-stats");
+	const containerJs = document.querySelector(".workout-stats");
 
 	const workoutKeyMap = {
 		date: "Workout Date",
@@ -67,18 +67,18 @@ function renderWorkoutSummary(summary) {
 		p.appendChild(strong);
 		p.appendChild(textNode);
 
-		container.appendChild(p);
+		containerJs.appendChild(p);
 	});
 }
 
 function renderNoWorkoutText() {
-	const container = document.querySelector(".workout-stats");
+	const containerJs = document.querySelector(".workout-stats");
 	const p = document.createElement("p");
 	const strong = document.createElement("strong");
 	strong.textContent = "Get to work fatty!";
 
 	p.appendChild(strong);
-	container.appendChild(p);
+	containerJs.appendChild(p);
 }
 
 initWorkout();

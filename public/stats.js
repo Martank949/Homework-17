@@ -184,22 +184,16 @@ function populateChart(data) {
 	});
 }
 
-function calculateTotalWeight(data) {
-	let totals = [];
+function duration(data) {
+	let durations = [];
 
 	data.forEach((workout) => {
-		const workoutTotal = workout.exercises.reduce((total, { type, weight }) => {
-			if (type === "resistance") {
-				return total + weight;
-			} else {
-				return total;
-			}
-		}, 0);
-
-		totals.push(workoutTotal);
+		workout.exercises.forEach((exercise) => {
+			durations.push(exercise.duration);
+		});
 	});
 
-	return totals;
+	return durations;
 }
 
 function calculateTotalWeight(data) {
