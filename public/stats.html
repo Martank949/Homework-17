@@ -10,15 +10,28 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
-    <title>Fitness Chart</title>
+    <title>Average Joe's Fitness Tracker</title>
   </head>
   <nav>
-    <a href="/">Fitness Tracker</a>
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/stats">Dashboard</a>
+          </li>
+        </ul>
+      </div>
+        <h5 class="card-title">Average Joe's Fitness Tracker</h5>
+        <p class="card-text">Dashboard</p>
+    </div>
   </nav>
   <body>
     <div class="containerJs mt">
-      <h1 class="text-center">Workout Dashboard</h1>
       <div class="row mt">
         <div class="col-md-6">
           <canvas id="canvas"></canvas>
